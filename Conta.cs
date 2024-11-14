@@ -4,15 +4,20 @@
 
     public void SetSaldo(double s)
     {
-
-        if (s >= 0)
+        try
         {
-            saldo = s;
-            Console.WriteLine("\nSUCESSO!");
-        }
-        else
+            if (s >= 0)
+            {
+                saldo = s;
+                Console.WriteLine("\nSUCESSO!");
+            }
+            else
+            {
+                throw new Exception("O VALOR NÃO PODE SER NEGATIVO!");
+            }
+        }catch(Exception ex)
         {
-            Console.WriteLine("\nSALDO INVÁLIDO!");
+            throw new Exception(ex.Message);
         }
     
     }
